@@ -4,6 +4,10 @@ import { resetEffect, initEffectListener } from './picture-effect.js';
 import { sendPicture } from './api.js';
 import { showSuccessMessage, showErrorMessage } from './messages.js';
 
+const REG_EXP = /^#[a-zа-яё0-9]{1,19}$/i;
+const HASHTAG_LENGTH_COUNT = 5;
+const COMMENT_LENGTH_COUNT = 140;
+
 const bodyElement = document.querySelector('body');
 const pictureFormElement = document.querySelector('.img-upload__form');
 const pictureInputElement =
@@ -18,10 +22,6 @@ const commentTextAreaElement =
 
 const submitButtonElement = pictureFormElement.querySelector('.img-upload__submit');
 const errorElement = document.querySelector('.error');
-
-const REG_EXP = /^#[a-zа-яё0-9]{1,19}$/i;
-const HASHTAG_LENGTH_COUNT = 5;
-const COMMENT_LENGTH_COUNT = 140;
 
 const SubmitButtonCaption = {
   SUBMITING: 'Отправляю...',
